@@ -6,3 +6,4 @@
 不能--H这样子
 
 ### 以end结尾的有：fun、 case of、 if、try catch after
+###tuple的element（N,tuple）方法 N>=1不是从0开始
