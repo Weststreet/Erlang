@@ -9,3 +9,14 @@
 ###tuple的element（N,tuple）方法 N>=1不是从0开始
 ### 布尔表达式（A or B, A and B)表达式A，B都会被执行，尽管可能只需要第一个值就能知道整个布尔表达式的值，短路布尔表达式不一定是两个都会执行
 ###receive after end receive首先从邮箱里读取所有的邮件 然后才会执行after的部分，after 0或者after 1000 都是在receive之后才有机会执行
+after 0:超时为零会让超时的主体部分立刻（不是首先）执行(在分裂出进程的时候就自动执行)，但是在这之前系统会尝试对邮箱里面的消息进行匹配。可以用此特性写出清空邮箱的程序
+
+flush_buffer()->
+  receive
+    _Any->
+      flush_buffer()
+    after 0->
+      true
+  end.
+  
+当执行完Pid=spawn(test,clock,[]). spawn方法时 Pid进程就已经处于接受消息的状态了
