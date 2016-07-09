@@ -20,3 +20,5 @@ flush_buffer()->
   end.
   
 当执行完Pid=spawn(test,clock,[]). spawn方法时 Pid进程就已经处于接受消息的状态了
+
+erl -name mynode@127.0.0.1 -setcookie abc
