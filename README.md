@@ -22,3 +22,29 @@ flush_buffer()->
 当执行完Pid=spawn(test,clock,[]). spawn方法时 Pid进程就已经处于接受消息的状态了
 
 erl -name mynode@127.0.0.1 -setcookie abc
+
+
+Built-in type	Defined as
+term()	any()
+binary()	<<_:_*8>>
+bitstring()	<<_:_*1>>
+boolean()	'false' | 'true'
+byte()	0..255
+char()	0..16#10ffff
+nil()	[]
+number()	integer() | float()
+list()	[any()]
+maybe_improper_list()	maybe_improper_list(any(), any())
+nonempty_list()	nonempty_list(any())
+string()	[char()]
+nonempty_string()	[char(),...]
+iodata()	iolist() | binary()
+iolist()	maybe_improper_list(byte() | binary() | iolist(), binary() | [])
+function()	fun()
+module()	atom()
+mfa()	{module(),atom(),arity()}
+arity()	0..255
+identifier()	pid() | port() | reference()
+node()	atom()
+timeout()	'infinity' | non_neg_integer()
+no_return()	none()
